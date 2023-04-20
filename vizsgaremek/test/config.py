@@ -9,5 +9,8 @@ def chrome_driver_config() -> webdriver.Chrome:
     o = Options()
     o.add_experimental_option('detach', True)
     browser = webdriver.Chrome(service=s, options=o)
+    o.add_argument('--headless')
+    o.add_argument('--no-sandbox')
+    o.add_argument('--disable-dev-shm-usage')
 
     return browser
