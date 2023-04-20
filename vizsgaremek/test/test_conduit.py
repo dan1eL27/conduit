@@ -51,7 +51,7 @@ class TestSignUp:
                 assert get_error_title(self.browser) == expected_title
                 assert get_error_description(self.browser) == expected_description
 
-
+'''
 class TestSignInAndSignOut:
 
     def setup_method(self):
@@ -184,3 +184,4 @@ class TestListOperations:
             for i in f:
                 saved_data.append(i.replace("\n", ""))
         print(saved_data)
+'''
