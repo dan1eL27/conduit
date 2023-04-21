@@ -35,7 +35,7 @@ def get_error_description(browser):
 
 
 def get_users_from_file():
-    with open('vizsgaremek/test/datasource_users.csv', 'r', encoding='UTF-8') as datafile:
+    with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
 # local with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
         users = csv.reader(datafile, delimiter=';')
         next(users)
@@ -48,13 +48,21 @@ def signin(browser, email, password):
     password_input = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='Password']")))
     sign_in_button = browser.find_element(By.XPATH, "//button[normalize-space()='Sign in']")
     email_input.click()
+    time.sleep(0.2)
     email_input.send_keys(Keys.CONTROL + 'a')
+    time.sleep(0.2)
     email_input.send_keys(Keys.DELETE)
+    time.sleep(0.2)
     password_input.click()
+    time.sleep(0.2)
     password_input.send_keys(Keys.CONTROL + 'a')
+    time.sleep(0.2)
     password_input.send_keys(Keys.DELETE)
+    time.sleep(0.2)
     email_input.send_keys(email)
+    time.sleep(0.2)
     password_input.send_keys(password)
+    time.sleep(0.2)
     sign_in_button.click()
 
 
@@ -68,7 +76,7 @@ def accept_cookies(browser):
 
 
 def logout(browser):
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 20)
     logout_button = wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[@class='container']/ul/li)[5]")))
     logout_button.click()
     time.sleep(2)
@@ -81,7 +89,7 @@ def create_new_post(browser):
     article = "tesztarticle"
     title = "todelete"
     tag = "teszttag"
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 20)
     new_article_nav = wait.until(EC.presence_of_element_located((By.XPATH, "//a[@href='#/editor']")))
     new_article_nav.click()
     article_inp = wait.until(EC.visibility_of_element_located((By.XPATH, "//textarea[@class='form-control']")))
@@ -104,7 +112,7 @@ def modify_user_data(browser):
     description_text = "Test modified description"
     username_text = "Automated modified username"
     picture_url = "https://thumbs.dreamstime.com/z/vector-illustration-avatar-dummy-sign-collection-avatar-image-stock-symbol-web-vector-design-avatar-dummy-137160097.jpg"
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 20)
     time.sleep(2)
     settings = wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[@class='container']/ul/li)[3]")))
     settings.click()
@@ -135,7 +143,7 @@ def modify_user_data(browser):
 
 
 def go_through_page_list(browser):
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 20)
     pagination = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "pagination")))
     page_links = pagination.find_elements(By.TAG_NAME, "a")
     counter = 0
@@ -147,7 +155,7 @@ def go_through_page_list(browser):
 
 
 def delete_last_post(browser):
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 20)
     last_post_link = wait.until(EC.visibility_of_all_elements_located((By.XPATH,
                                                                        "//div[@class='article-preview']")))[-1]
     last_post_link_title = \

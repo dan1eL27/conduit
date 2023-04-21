@@ -82,7 +82,6 @@ class TestSignInAndSignOut:
     @allure.id("TC-04")
     @allure.title("Kijelentkezés")
     def testsingout(self):
-        wait = WebDriverWait(self.browser, 10)
         for user in get_users_from_file():
             if user[0].startswith('signin_valid'):
                 use_case, username, email, password, expected_title, expected_description = user
