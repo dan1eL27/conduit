@@ -21,10 +21,9 @@ from config import *
 
 class TestSignUp(object):
 
-
-    def setup_method(self):
-        self.browser = webdriver.Chrome()
-        config(self.browser)
+    def setup_method(self, browser):
+        self.browser = browser
+        chrome_driver_config()
         self.browser.get('http://localhost:1667/#/register')
 
     def teardown_method(self):

@@ -6,15 +6,6 @@ import csv
 import time
 
 
-def accept_cookies(browser):
-    wait = WebDriverWait(browser, 5)
-    cookie_accept = wait.until(EC.presence_of_element_located(
-        (By.XPATH, "//button[@class='cookie__bar__buttons__button cookie__bar__buttons__button--accept']")))
-    cookie_accept.click()
-    cookie_status = browser.get_cookie("vue-cookie-accept-decline-cookie-policy-panel")
-    assert cookie_status["value"] == "accept"
-
-
 def signup(browser, username, email, password):
     wait = WebDriverWait(browser, 5)
     username_input = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Username']")))
@@ -63,6 +54,15 @@ def signin(browser, email, password):
     email_input.send_keys(email)
     password_input.send_keys(password)
     sign_in_button.click()
+
+
+def accept_cookies(browser):
+    wait = WebDriverWait(browser, 5)
+    cookie_accept = wait.until(EC.presence_of_element_located(
+        (By.XPATH, "//button[@class='cookie__bar__buttons__button cookie__bar__buttons__button--accept']")))
+    cookie_accept.click()
+    cookie_status = browser.get_cookie("vue-cookie-accept-decline-cookie-policy-panel")
+    assert cookie_status["value"] == "accept"
 
 
 def logout(browser):

@@ -4,12 +4,12 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-def config(browser):
+def chrome_driver_config() -> webdriver.Chrome:
     service = Service(executable_path=ChromeDriverManager().install())
     options = Options()
-    options.add_experimental_option("detach", True)
+    options.add_experimental_option('detach', True)
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    browser = webdriver.Chrome(service=service, options=options)
-    browser.maximize_window()
+
+    return webdriver.Chrome(service=service, options=options)
