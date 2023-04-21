@@ -15,14 +15,23 @@ Kijelentkezés -> TC-04
 '''
 
 from main_functions import *
-import config
 import allure
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 
-class TestSignUp:
-
+class TestSignUp(object):
     def setup_method(self):
-        self.browser = config.chrome_driver_config(self)
+        service = Service(executable_path=ChromeDriverManager().install())
+        options = Options()
+        options.add_experimental_option("detach", True)
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        self.browser = webdriver.Chrome(service=service, options=options)
+        self.browser.maximize_window()
         self.browser.get('http://localhost:1667/#/register')
 
     def teardown_method(self):
