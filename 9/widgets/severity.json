@@ -1,0 +1,1 @@
+[{"uid":"549867f44fcb99b","name":"Sign up with invalid data","time":{"start":1682089783576,"stop":1682089783576,"duration":0},"status":"broken","severity":"normal"},{"uid":"50f8765f76e858dd","name":"Sign up with valid data","time":{"start":1682089783514,"stop":1682089783514,"duration":0},"status":"broken","severity":"normal"}]
