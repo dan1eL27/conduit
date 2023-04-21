@@ -22,7 +22,7 @@ import allure
 class TestSignUp:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = config.chrome_driver_config(self)
         self.browser.get('http://localhost:1667/#/register')
 
     def teardown_method(self):
