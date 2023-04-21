@@ -16,10 +16,12 @@ def signup(browser, username, email, password):
     email_input.send_keys(email)
     password_input.send_keys(password)
     signup_but.click()
+    time.sleep(0.5)
     get_error_title = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='swal-title']")))
     get_error_description = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='swal-text']")))
     confirm_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[normalize-space()='OK']")))
     confirm_button.click()
+    time.sleep(0.5)
 
 
 def get_error_title(browser):
