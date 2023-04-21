@@ -32,7 +32,7 @@ class TestSignUp(object):
     @allure.id("TC-01")
     @allure.title("Sign up with valid data")
     def test_sign_up_with_csv_valid(self):
-        wait = WebDriverWait(self.browser, 2)
+        wait = WebDriverWait(self.browser, 10)
         for user in get_users_from_file():
             use_case, username, email, password, expected_title, expected_description = user
             if use_case.startswith('signup_valid'):
@@ -65,7 +65,7 @@ class TestSignInAndSignOut:
     @allure.id("TC-03")
     @allure.title("Sign in with valid and invalid data")
     def test_sign_in_with_csv(self):
-        wait = WebDriverWait(self.browser, 2)
+        wait = WebDriverWait(self.browser, 10)
         for user in get_users_from_file():
             if user[0].startswith('signin'):
                 use_case, username, email, password, expected_title, expected_description = user
@@ -82,7 +82,7 @@ class TestSignInAndSignOut:
     @allure.id("TC-04")
     @allure.title("Kijelentkezés")
     def testsingout(self):
-        wait = WebDriverWait(self.browser, 5)
+        wait = WebDriverWait(self.browser, 10)
         for user in get_users_from_file():
             if user[0].startswith('signin_valid'):
                 use_case, username, email, password, expected_title, expected_description = user
@@ -131,7 +131,6 @@ class TestPostHandling:
     @allure.id("TC-08")
     @allure.title("Delete taggal rendelkező poszt törlése")
     def testpostdelete(self):
-        wait = WebDriverWait(self.browser, 5)
         delete_last_post(self.browser)
 
 

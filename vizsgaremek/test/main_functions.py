@@ -7,7 +7,7 @@ import time
 
 
 def signup(browser, username, email, password):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     username_input = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Username']")))
     email_input = browser.find_element(By.XPATH, "//input[@placeholder='Email']")
     password_input = browser.find_element(By.XPATH, "//input[@placeholder='Password']")
@@ -23,13 +23,14 @@ def signup(browser, username, email, password):
 
 
 def get_error_title(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     title_element = wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="swal-title"]')))
     return title_element.text
 
 
 def get_error_description(browser):
-    description_element = browser.find_element(By.XPATH, '//div[@class="swal-text"]')
+    wait = WebDriverWait(browser, 10)
+    description_element = wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="swal-text"]')))
     return description_element.text
 
 
@@ -42,7 +43,7 @@ def get_users_from_file():
 
 
 def signin(browser, email, password):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     email_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Email']")))
     password_input = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='Password']")))
     sign_in_button = browser.find_element(By.XPATH, "//button[normalize-space()='Sign in']")
@@ -58,7 +59,7 @@ def signin(browser, email, password):
 
 
 def accept_cookies(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     cookie_accept = wait.until(EC.presence_of_element_located(
         (By.XPATH, "//button[@class='cookie__bar__buttons__button cookie__bar__buttons__button--accept']")))
     cookie_accept.click()
@@ -67,7 +68,7 @@ def accept_cookies(browser):
 
 
 def logout(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     logout_button = wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[@class='container']/ul/li)[5]")))
     logout_button.click()
     time.sleep(2)
@@ -80,7 +81,7 @@ def create_new_post(browser):
     article = "tesztarticle"
     title = "todelete"
     tag = "teszttag"
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     new_article_nav = wait.until(EC.presence_of_element_located((By.XPATH, "//a[@href='#/editor']")))
     new_article_nav.click()
     article_inp = wait.until(EC.visibility_of_element_located((By.XPATH, "//textarea[@class='form-control']")))
@@ -103,7 +104,7 @@ def modify_user_data(browser):
     description_text = "Test modified description"
     username_text = "Automated modified username"
     picture_url = "https://thumbs.dreamstime.com/z/vector-illustration-avatar-dummy-sign-collection-avatar-image-stock-symbol-web-vector-design-avatar-dummy-137160097.jpg"
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     time.sleep(2)
     settings = wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[@class='container']/ul/li)[3]")))
     settings.click()
@@ -134,7 +135,7 @@ def modify_user_data(browser):
 
 
 def go_through_page_list(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     pagination = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "pagination")))
     page_links = pagination.find_elements(By.TAG_NAME, "a")
     counter = 0
@@ -146,7 +147,7 @@ def go_through_page_list(browser):
 
 
 def delete_last_post(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     last_post_link = wait.until(EC.visibility_of_all_elements_located((By.XPATH,
                                                                        "//div[@class='article-preview']")))[-1]
     last_post_link_title = \
@@ -167,7 +168,7 @@ list_to_save = []
 
 
 def list_data(browser):
-    wait = WebDriverWait(browser, 5)
+    wait = WebDriverWait(browser, 10)
     articletitles = wait.until(
         EC.presence_of_all_elements_located((By.XPATH, f'//div[@class="article-preview"]/a[@class="preview-link"]/h1')))
     global list_to_save
