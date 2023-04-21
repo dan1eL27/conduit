@@ -28,8 +28,6 @@ class TestSignUp(object):
     def teardown_method(self):
         self.browser.quit()
 
-    def teardown_method(self):
-        self.browser.quit()
 
     @allure.id("TC-01")
     @allure.title("Sign up with valid data")
@@ -54,11 +52,11 @@ class TestSignUp(object):
                 assert get_error_title(self.browser) == expected_title
                 assert get_error_description(self.browser) == expected_description
 
-'''
+
 class TestSignInAndSignOut:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = chrome_driver_config()
         self.browser.get('http://localhost:1667/#/login')
 
     def teardown_method(self):
@@ -95,7 +93,7 @@ class TestSignInAndSignOut:
 class TestPrivacyPolicy:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = chrome_driver_config()
         self.browser.get('http://localhost:1667/#/')
 
     def teardown_method(self):
@@ -110,7 +108,7 @@ class TestPrivacyPolicy:
 class TestPostHandling:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = chrome_driver_config()
         self.browser.get('http://localhost:1667/#/login')
         for user in get_users_from_file():
             if user[0].startswith('signin_valid'):
@@ -140,7 +138,7 @@ class TestPostHandling:
 class TestModifyUserData:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = chrome_driver_config()
         self.browser.get('http://localhost:1667/#/login')
         for user in get_users_from_file():
             if user[0].startswith('signin_valid'):
@@ -159,7 +157,7 @@ class TestModifyUserData:
 class TestListOperations:
 
     def setup_method(self):
-        self.browser = config.chrome_driver_config()
+        self.browser = chrome_driver_config()
         self.browser.get('http://localhost:1667/#/login')
         for user in get_users_from_file():
             if user[0].startswith('signin_valid'):
@@ -187,4 +185,3 @@ class TestListOperations:
             for i in f:
                 saved_data.append(i.replace("\n", ""))
         print(saved_data)
-'''
