@@ -13,4 +13,4 @@ signin_invalid_no_email;;;Dummypassword2;Login failed!;Email field required.
 signin_invalid_email_format;;dummyuser82@;Dummypassword1;Login failed!;Email must be a valid email.
 signin_invalid_not_registered_email;;notregisted@eamail.com;Dummypassword2;Login failed!;Invalid user credentials.
 signin_invalid_invalid_password;;dummyuser166@dummyeamail.com;invalidpassword;Login failed!;Invalid user credentials.
-signin_valid_happypath;;dummyuser113@dummyeamail.com;Dummypassword2;;
+signin_valid_happypath;;dummyuser1@dummyeamail.com;Dummypassword2;;
