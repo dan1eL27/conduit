@@ -178,12 +178,10 @@ class TestListOperations:
     @allure.id("TC-11")
     @allure.title("Feedek címeinek listázása és mentése külső fájlba")
     def test_save_data(self):
-        saved_data = []
-        print(list_to_save)
+        export_data = []
         with open('vizsgaremek/automated_tests/export_article.txt', 'w', newline='') as file:
             for title in list_to_save:
                 file.write("%s\n" % title)
-        with open('vizsgaremek/automated_tests/export_article.txt', 'w', newline='') as f:
-            for i in f:
-                saved_data.append(i.replace("\n", ""))
-        print(saved_data)
+        with open('vizsgaremek/automated_tests/export_article.txt', 'r', newline='') as fileedit:
+            for i in fileedit:
+                export_data.append(i.replace("\n", ""))
