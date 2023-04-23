@@ -7,7 +7,7 @@ import time
 
 
 def signup(browser, username, email, password):
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 5)
     username_input = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Username']")))
     email_input = browser.find_element(By.XPATH, "//input[@placeholder='Email']")
     password_input = browser.find_element(By.XPATH, "//input[@placeholder='Password']")
@@ -16,10 +16,6 @@ def signup(browser, username, email, password):
     email_input.send_keys(email)
     password_input.send_keys(password)
     signup_but.click()
-    time.sleep(1)
-    confirm_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[normalize-space()='OK']")))
-    confirm_button.click()
-    time.sleep(1)
 
 
 def get_error_title(browser):
@@ -35,8 +31,8 @@ def get_error_description(browser):
 
 
 def get_users_from_file():
-    with open('vizsgaremek/test/datasource_users.csv', 'r', encoding='UTF-8') as datafile:
-# local with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
+    #with open('vizsgaremek/test/datasource_users.csv', 'r', encoding='UTF-8') as datafile:
+    with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
         users = csv.reader(datafile, delimiter=';')
         next(users)
         return list(users)

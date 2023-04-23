@@ -51,6 +51,8 @@ class TestSignUp(object):
                 signup(self.browser, username, email, password)
                 assert get_error_title(self.browser) == expected_title
                 assert get_error_description(self.browser) == expected_description
+                confirm_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[normalize-space()='OK']")))
+                confirm_button.click()
 
 
 class TestSignInAndSignOut:
