@@ -49,10 +49,12 @@ class TestSignUp(object):
             use_case, username, email, password, expected_title, expected_description = user
             if use_case.startswith('signup_invalid'):
                 signup(self.browser, username, email, password)
+                time.sleep(1)
                 assert get_error_title(self.browser) == expected_title
                 assert get_error_description(self.browser) == expected_description
                 confirm_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[normalize-space()='OK']")))
                 confirm_button.click()
+                time.sleep(1)
 
 
 class TestSignInAndSignOut:
