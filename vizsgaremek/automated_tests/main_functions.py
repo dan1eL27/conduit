@@ -145,15 +145,17 @@ def go_through_page_list(browser):
 def delete_last_post(browser):
     wait = WebDriverWait(browser, 20)
     last_post_link = wait.until(EC.visibility_of_all_elements_located((By.XPATH,
-                                                                       "//div[@class='article-preview']")))[-1]
+                                                                    "//div[@class='article-preview']")))[-1]
     last_post_link_title = \
         wait.until(
             EC.visibility_of_all_elements_located((By.XPATH, "(//div[@class='article-preview'])[last()]//a/h1")))[-1]
     assert last_post_link_title.text == "todelete"
+    print("sikeres assert")
     last_post_link.click()
     delete_button = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//button[@class='btn btn-outline-danger btn-sm']")))
     delete_button.click()
+    print("sikeres delete")
     last_post_link_after_delete_title = \
         wait.until(
             EC.visibility_of_all_elements_located((By.XPATH, "(//div[@class='article-preview'])[last()]//a/h1")))[-1]
