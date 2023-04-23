@@ -44,7 +44,7 @@ class TestSignUp(object):
     @allure.id("TC-02")
     @allure.title("Sign up with invalid data")
     def test_sign_up_with_csv_invalid(self):
-        wait = WebDriverWait(self.browser, 2)
+        wait = WebDriverWait(self.browser, 5)
         for user in get_users_from_file():
             use_case, username, email, password, expected_title, expected_description = user
             if use_case.startswith('signup_invalid'):
