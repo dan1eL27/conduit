@@ -1,0 +1,3 @@
+sikeres assert
+sikeres click
+sikeres delete
