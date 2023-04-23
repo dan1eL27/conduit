@@ -152,6 +152,7 @@ def delete_last_post(browser):
     assert last_post_link_title.text == "todelete"
     print("sikeres assert")
     last_post_link.click()
+    print("sikeres click")
     delete_button = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//button[@class='btn btn-outline-danger btn-sm']")))
     delete_button.click()
