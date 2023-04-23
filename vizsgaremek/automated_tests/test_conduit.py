@@ -180,10 +180,10 @@ class TestListOperations:
     def test_save_data(self):
         saved_data = []
         print(list_to_save)
-        with open('export_article.txt', 'w', newline='') as file:
+        with open('', 'w', newline='') as file:
             for title in list_to_save:
                 file.write("%s\n" % title)
-        with open('export_article.txt', 'r', newline='') as f:
+        with open('vizsgaremek/automated_tests/export_article.txt', 'r', newline='') as f:
             for i in f:
                 saved_data.append(i.replace("\n", ""))
         print(saved_data)
