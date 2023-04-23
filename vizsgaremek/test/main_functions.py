@@ -31,8 +31,8 @@ def get_error_description(browser):
 
 
 def get_users_from_file():
-    #with open('vizsgaremek/test/datasource_users.csv', 'r', encoding='UTF-8') as datafile:
-    with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
+    with open('vizsgaremek/test/datasource_users.csv', 'r', encoding='UTF-8') as datafile:
+    #with open('datasource_users.csv', 'r', encoding='UTF-8') as datafile:
         users = csv.reader(datafile, delimiter=';')
         next(users)
         return list(users)
